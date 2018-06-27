@@ -5,9 +5,9 @@ public class  Person extends Registry
 	 private String name;
 	 private String surname;
 	 private String adress;
-	 private fullNumber phoneNr;
+	 private FullNumber phoneNr;
 
-	 public Person(String name, String surname, String adress, fullNumber phoneNr)
+	 public Person(String name, String surname, String adress, FullNumber phoneNr)
 	 {
 		 this.name = name;
 		 this.surname = surname;
@@ -31,13 +31,13 @@ public class  Person extends Registry
 	 }
 
 	 @Override
-	 public fullNumber getPhoneNumber() 
+	 public FullNumber getPhoneNumber() 
 	 {
 		 return phoneNr;
 	 }
 
 	 @Override
-	 public void description() 
+	 public void showDescription() 
 	 {
 		 System.out.println("Full name: " + getName() + " " + getSurname());
 		 System.out.println("Adress: " + getAddress());

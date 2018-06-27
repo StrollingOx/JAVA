@@ -7,16 +7,16 @@ public class ex_6 {
 	public static void main(String[] args) 
 	{
 		
-		 	Registry company1 = new Company("First", "Dabrowskiego 20", new fullNumber("48", "111-111-111"));
-	        Registry company2 = new Company("Second", "GdziestamwLodzi", new fullNumber("48", "222 222 222"));
-	        Registry company3 = new Company("Third", "Hendaleko", new fullNumber("48", "333444555"));
+		 	Registry company1 = new Company("First", "Dabrowskiego 20", new FullNumber("48", "111-111-111"));
+	        Registry company2 = new Company("Second", "GdziestamwLodzi", new FullNumber("48", "222 222 222"));
+	        Registry company3 = new Company("Third", "Hendaleko", new FullNumber("48", "333444555"));
 
-	        Registry person1 = new Person("Antoni", "Urbaniak", "Dluga 125", new fullNumber("48", "322-223-344"));
-	        Registry person2 = new Person("Agnieszka", "Jadczak", "Prusa 34", new fullNumber("48", "111-443-112"));
-	        Registry person3 = new Person("Justyna", "Franczak", "Konstantynowska 44", new fullNumber("48", "096-212-545"));
+	        Registry person1 = new Person("Antoni", "Urbaniak", "Dluga 125", new FullNumber("48", "322-223-344"));
+	        Registry person2 = new Person("Agnieszka", "Jadczak", "Prusa 34", new FullNumber("48", "111-443-112"));
+	        Registry person3 = new Person("Justyna", "Franczak", "Konstantynowska 44", new FullNumber("48", "096-212-545"));
 	        
 
-	        TreeMap<fullNumber, Registry> phoneBook = new TreeMap<fullNumber, Registry>(); //<K, V> K - the type of keys maintained by this map; V - the type of mapped values;
+	        TreeMap<FullNumber, Registry> phoneBook = new TreeMap<FullNumber, Registry>(); //<K, V> K - the type of keys maintained by this map; V - the type of mapped values;
 	        //populating tree map
 	        phoneBook.put(company1.getPhoneNumber(), company1);
 	        phoneBook.put(company2.getPhoneNumber(), company2);
@@ -34,8 +34,8 @@ public class ex_6 {
 	        //display
 	        while(i.hasNext()) 
 	        {
-	            Map.Entry<fullNumber, Registry> map = (Map.Entry<fullNumber, Registry>)i.next();
-	            map.getValue().description();
+	            Map.Entry<FullNumber, Registry> map = (Map.Entry<FullNumber, Registry>)i.next();
+	            map.getValue().showDescription();
 	        }
 	    
 	}

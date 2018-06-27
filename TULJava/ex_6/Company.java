@@ -4,9 +4,9 @@ public class Company extends Registry
 {
 	private String cname;
     private String cadress;
-    private fullNumber cphoneNr;
+    private FullNumber cphoneNr;
 
-    public Company(String cname, String cadress, fullNumber cphoneNr) 
+    public Company(String cname, String cadress, FullNumber cphoneNr) 
     {
         this.cname = cname;
         this.cadress = cadress;
@@ -24,13 +24,13 @@ public class Company extends Registry
     }
     
     @Override
-    public fullNumber getPhoneNumber() 
+    public FullNumber getPhoneNumber() 
     {
         return cphoneNr;
     }
 
     @Override
-    public void description() 
+    public void showDescription() 
     {
         System.out.println("Company name: " + getCompanyName());
         System.out.println("Address of company: " + getAddress());
