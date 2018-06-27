@@ -1,6 +1,6 @@
 package task;
 
-public  class fullNumber implements Comparable<fullNumber>
+public  class FullNumber implements Comparable<fullNumber>
 {
 	private String code;
 	private String number;
@@ -15,14 +15,14 @@ public  class fullNumber implements Comparable<fullNumber>
 		 return number;
 	}
 	
-	public fullNumber(String code, String number) 
+	public FullNumber(String code, String number) 
 	{
         this.code = code;
         this.number = number;
 	}
 	
 	@Override
-	public int compareTo(fullNumber nr) 
+	public int compareTo(FullNumber nr) 
 	{
 		return number.compareTo(nr.number);
 	}
