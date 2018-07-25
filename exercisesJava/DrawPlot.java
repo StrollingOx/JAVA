@@ -5,7 +5,7 @@ import java.awt.Color;
 //The program draws function plot y(f); (arguments from x to width-15).
 //atm for 0-6PI;
 
-public class draw_a_plot extends JApplet
+public class DrawPlot extends JApplet
 {
 	int width, height;
 	public void init () 
