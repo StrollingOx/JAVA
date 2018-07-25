@@ -1,12 +1,10 @@
-//WORK IN PROGRESS!!!
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 
-public class load_and_save
+public class LoadAndSave
 {   
 	public static int load(JFileChooser chooser, int index, String[][] table) 
 	{
@@ -73,7 +71,7 @@ public class load_and_save
 		outputStream.printf("0.000\t\t0.000\t\t%.1f\n", Double.parseDouble(table[0][4])); 
 		for (int ix=0;ix<(index-1);ix++)
 		{                       
-			time = load_and_save.convertTime(ix+1,table)-load_and_save.convertTime(ix,table);
+			time = LoadAndSave.convertTime(ix+1,table)-LoadAndSave.convertTime(ix,table);
 			distance = (Double.parseDouble(table[ix+1][5]) - Double.parseDouble(table[ix][5]))*1000;
 			velocity = time*distance;
 			hight = Double.parseDouble(table[ix+1][4]);
@@ -97,8 +95,8 @@ public class load_and_save
 		int index = 0;
 		String[][] tablica = new String[2300][6]; //[x][0]date, [x][1]time, [x][2]lati, [x][3]longi, [x][4]alti, [x][5]dist;
 		
-		index = load_and_save.load(chooser, index, tablica); // method 'load' must be int so it can return index value
-		load_and_save.save("velocity.csv", index, tablica);
+		index = LoadAndSave.load(chooser, index, tablica); // method 'load' must be int so it can return index value
+		LoadAndSave.save("velocity.csv", index, tablica);
 	}
 	
 	
