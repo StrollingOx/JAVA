@@ -12,7 +12,7 @@ import java.applet.*;
 import javax.swing.JApplet;
 import java.awt.Color;
 
-public class magic extends JApplet
+public class Magic extends JApplet
 {   
 	public static int loadData(JFileChooser chooser, int index, String[][] table) 
 	{
@@ -137,8 +137,8 @@ public class magic extends JApplet
 		super.paint(g);
 		Double[][] tab = new Double[2300][3];
 		int index = 0;
-		index = magic.loadVelocityCsv("velocity.csv", index, tab);
-		double max = magic.maxHeight(tab,index);
+		index = Magic.loadVelocityCsv("velocity.csv", index, tab);
+		double max = Magic.maxHeight(tab,index);
 		
 		int width, height;
 		width = index; 
@@ -189,11 +189,11 @@ public class magic extends JApplet
 		int index = 0;
 		String[][] tablica = new String[2300][6]; //[x][0]date, [x][1]time, [x][2]lati, [x][3]longi, [x][4]alti, [x][5]dist;
 		
-		index = magic.loadData(chooser, index, tablica); // loadData must be int so it can return index 
-		magic.saveVelocityCsv("velocity.csv", index, tablica);
+		index = Magic.loadData(chooser, index, tablica); // loadData must be int so it can return index 
+		Magic.saveVelocityCsv("velocity.csv", index, tablica);
 		
 		JFrame jp1 = new JFrame("Wykres wysokości od czasu"); //create frame
-		magic a = new magic(); //create object a
+		Magic a = new Magic(); //create object a
 		jp1.getContentPane().add(a); //draw object a on the frame
         jp1.setSize(new Dimension(index+50,450)); //frame size
         jp1.setVisible(true); 
