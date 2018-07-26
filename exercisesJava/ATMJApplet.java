@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
-public class Bankomat_JApplet extends JApplet implements ActionListener
+public class ATMJApplet extends JApplet implements ActionListener
 { 
-	void dodajClickMe(String nazwaGuzika, int x, int y, int size, TextField tf) 
+	void addClickMe(String buttonName, int x, int y, int size, TextField tf) 
 	{
 		JButton clickMe = new JButton(nazwaGuzika);
 		setLayout(null);
@@ -14,28 +14,28 @@ public class Bankomat_JApplet extends JApplet implements ActionListener
 		clickMe.addActionListener( new ActionListener()
 		{
 			public void actionPerformed(ActionEvent whatsUp){
-			String blabla = tf.getText();
-			tf.setText(blabla + nazwaGuzika);
+			String sampleString = tf.getText();
+			tf.setText(sampleString + buttonName);
 		}});
 
 		add(clickMe);
 	}
 	
-	void dodajKlawiature(TextField tf)
+	void addKeyboard(TextField tf)
 	{
-		dodajClickMe("1", 10, 100, 60, tf);
-		dodajClickMe("2", 70, 100, 60, tf);
-		dodajClickMe("3", 130, 100, 60, tf);
+		addClickMe("1", 10, 100, 60, tf);
+		addClickMe("2", 70, 100, 60, tf);
+		addClickMe("3", 130, 100, 60, tf);
 		
-		dodajClickMe("4", 10, 160, 60, tf);
-		dodajClickMe("5", 70, 160, 60, tf);
-		dodajClickMe("6", 130, 160, 60, tf);
+		addClickMe("4", 10, 160, 60, tf);
+		addClickMe("5", 70, 160, 60, tf);
+		addClickMe("6", 130, 160, 60, tf);
 		
-		dodajClickMe("7", 10, 220, 60, tf);
-		dodajClickMe("8", 70, 220, 60, tf);
-		dodajClickMe("9", 130, 220, 60, tf);
+		addClickMe("7", 10, 220, 60, tf);
+		adClickMe("8", 70, 220, 60, tf);
+		addClickMe("9", 130, 220, 60, tf);
 		
-		dodajClickMe("0", 70, 280, 60, tf);
+		addClickMe("0", 70, 280, 60, tf);
 		
 		JButton clickMeHash = new JButton("#");
 		setLayout(null);
@@ -63,7 +63,7 @@ public class Bankomat_JApplet extends JApplet implements ActionListener
 		TextField tf = new TextField();
 		tf.setBounds(30,60,145,30); 
 		add(tf);
-		dodajKlawiature(tf);
+		addKeyboard(tf);
 		
 		
 		JButton clickMeEnter = new JButton("e");
@@ -96,25 +96,25 @@ public class Bankomat_JApplet extends JApplet implements ActionListener
 class MyClass extends JPanel
 {
 	private static final long serialVersionUID = 1L;
-	private int kwota;
-	private int [] transakcja = {0,0,0,0,0,0,0,0}; //8
-	private String [] nominals_US= {"  $500","  $200","  $100","   $50","   $20","   $10","    $5","    $1"};
+	private int price;
+	private int [] transaction = {0,0,0,0,0,0,0,0}; //8
+	private String [] nominalsUS= {"  $500","  $200","  $100","   $50","   $20","   $10","    $5","    $1"};
 	private final int[] nominals = {500, 200, 100, 50, 20, 10, 5, 1};
 	private int index = 0;
 	
 	public MyClass(TextField tf)
 	{
-		this.kwota=Integer.parseInt(tf.getText());
+		this.price=Integer.parseInt(tf.getText());
 		
-	    System.out.println("Start: $"+kwota);
-	    while(kwota!=0.0)
+	    System.out.println("Start: $"+price);
+	    while(price!=0.0)
 	    {
 	    	if((kwota-nominals[index])>=0)
 	    	{
 	    		kwota = kwota - nominals[index];
-	    		System.out.print("Kwota = " +kwota+"; ");
-	    		transakcja[index] = transakcja[index]+1;
-	    		System.out.println("transakcja["+index+"] = "+transakcja[index]+";");
+	    		System.out.print("Kwota = " +price+"; ");
+	    		transaction[index] = transaction[index]+1;
+	    		System.out.println("transakcja["+index+"] = "+transaction[index]+";");
 	    	}
 	    	else
 	    	{
@@ -130,7 +130,7 @@ class MyClass extends JPanel
 		index=0;
 		for(index=0;index<8;index++)
 		{
-			for(int i = 0; i<transakcja[index];i++) 
+			for(int i = 0; i<transaction[index];i++) 
 			{
 				g.setColor(Color.GREEN);
 				g.fillRect(x+(i*1), y+(i*10), 40, 20);
