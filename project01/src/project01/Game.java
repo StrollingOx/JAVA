@@ -4,10 +4,13 @@ public class Game
 {
 	public static void main(String [] args)
 	{
-		Item sampleWeapon = new Weapon();
-		Item sampleArmor = new Armor();
-		
-		System.out.println(sampleArmor.getItemType());
-		System.out.println(sampleWeapon.getItemType());
+		Weapon a = new Weapon();
+		System.out.println(a.getArmor());
+		fun(a);
+	}
+	
+	public static void fun(Item abc)
+	{
+		System.out.println(abc.getItemType());
 	}
 }

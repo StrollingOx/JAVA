@@ -2,24 +2,22 @@ package project01;
 
 public class Equipment
 {
-	Item armor;
-	Item weapon;
+	Armor armor;
+	Weapon weapon;
 	
-	public Item getArmor() 
-	{
+	public Armor getArmor() {
 		return armor;
 	}
-	public void setArmor(Item armor) 
-	{
+	public void setArmor(Armor armor) {
 		this.armor = armor;
 	}
-	public Item getWeapon() 
-	{
+	public Weapon getWeapon() {
 		return weapon;
 	}
-	public void setWeapon(Item weapon) 
-	{
+	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
+	
+
 	
 }
