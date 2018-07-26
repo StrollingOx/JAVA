@@ -1,9 +1,8 @@
 package project01;
 
-public class Weapon implements Item
+public class Armor implements Item
 {
-	private String itemType = "Weapon";
-	
+	private String itemType = "Armor";
 	@Override
 	public String getItemType()
 	{

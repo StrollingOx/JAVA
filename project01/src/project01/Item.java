@@ -1,11 +1,8 @@
 package project01;
 
-public abstract class Item 
+public interface Item
 {
-	private String itemType;
-	
-	public void setItemType(String itemType)
-	{
-		this.itemType=itemType;
-	}
+	static String itemType = "UNIDENTIFIED";
+	public String getItemType();
 }
+
