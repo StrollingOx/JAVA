@@ -1,4 +1,6 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class RowRowRow 
 {
@@ -15,24 +17,28 @@ public class RowRowRow
 	
 	public static int countRows(String fileName)
 	{
-        Scanner file = null;
-        int counter = 0;
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+        StringBuffer stringBuffer = null;
+        int counter=0;
         try 
         {
-	            file = new Scanner(fileName);
-	            while (file.hasNextLine()) 
+	            fileReader = new FileReader(fileName);
+	            bufferedReader = new BufferedReader(fileReader);
+	            stringBuffer = new StringBuffer();
+	            String line;
+	            while ((line = bufferedReader.readLine()) != null) 
 	            {
-	            	file.nextLine();
+	            	stringBuffer.append(line);
+	            	stringBuffer.append("\n");
 	            	counter++;
-	            	
 	            }
-	            
-        } 
-        finally 
+        	fileReader.close();
+        } catch (IOException e)
         {
-        	if (file != null)
-        		file.close();
+        	e.printStackTrace();
         }
+        
         return counter;
 	    
 	}
