@@ -1,16 +1,17 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 class RunnableDemo implements Runnable {
    private Thread t;
    private String threadName;
    private String fileName;
+   private long start_time;
    
-   public RunnableDemo(String name, String fileName) {
+   public RunnableDemo(String name, String fileName, long start_time) {
       threadName = name;
       this.fileName = fileName;
+      this.start_time = start_time;
       System.out.println("Creating " +  threadName );
    }
    
@@ -18,6 +19,10 @@ class RunnableDemo implements Runnable {
       System.out.println("Running " +  threadName + " on file " + fileName  );
       System.out.printf("The file %s contains %d rows.\n", fileName, countRows(fileName));
       System.out.println("Thread " +  threadName + " exiting.");
+      long end_time = System.nanoTime();
+	  double timeElapsed = (end_time - start_time) / 1e6;
+	  System.out.printf(threadName + " Finished. Time: %.3f nanoseconds\n", timeElapsed);
+      
    }
    
    public void start () 
@@ -26,6 +31,7 @@ class RunnableDemo implements Runnable {
       if (t == null)
       {
          t = new Thread (this, threadName);
+         System.out.println("*beep* " +  threadName );
          t.start ();
       }
    }
