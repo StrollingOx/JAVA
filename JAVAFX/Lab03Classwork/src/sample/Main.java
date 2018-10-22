@@ -15,7 +15,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        ToggleSwitch toggleButton = new ToggleSwitch();
 
 
 
@@ -33,3 +32,4 @@ public class Main extends Application {
         launch(args);
     }
 }
+
