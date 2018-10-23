@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
@@ -18,7 +19,8 @@
             <children>
                 <StackPane layoutX="74.0" layoutY="99.0" prefHeight="498.0" prefWidth="603.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Rectangle arcHeight="90.0" arcWidth="200.0" fill="#bec4c9" height="460.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                  <MediaView fx:id="mv" fitHeight="460.0" fitWidth="560.0" />
+                        <Rectangle fx:id="vidScreen" arcHeight="90.0" arcWidth="200.0" disable="true" fill="#bec4c9" height="460.0" opacity="0.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="560.0" />
                     </children>
                 </StackPane>
             </children></AnchorPane>
@@ -41,7 +43,7 @@
                                     <children>
                                         <Slider orientation="VERTICAL" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                                         <Slider orientation="VERTICAL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                                        <Slider orientation="VERTICAL" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                        <Slider fx:id="vs" orientation="VERTICAL" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                                         <Slider orientation="VERTICAL" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                                         <Slider orientation="VERTICAL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                                         <Slider orientation="VERTICAL" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
@@ -65,7 +67,7 @@
                                             <padding>
                                                 <Insets bottom="10.0" top="10.0" />
                                             </padding></ToggleButton>
-                              <Circle fx:id="cir1" layoutX="104.0" layoutY="51.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                        <Circle fx:id="cir1" layoutX="104.0" layoutY="51.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                                     </children>
                                 </GridPane>
                             </children></AnchorPane>
