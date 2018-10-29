@@ -1,51 +1,63 @@
 package sample;
 
-
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.event.EventHandler;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
-import javafx.scene.control.Slider;
+
+
 import javafx.scene.image.Image;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.transform.Rotate;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.transform.Transform;
 
-import java.io.File;
-import java.net.MalformedURLException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import java.io.File;
 
-public class Controller  {
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.scene.media.Media;
+import javafx.scene.control.Slider;
+
+public class Controller implements Initializable {
+    @FXML private Ellipse ela;
+    @FXML private MediaView media;
+    private MediaPlayer mp;
+    private Media me;
+
+    @FXML private Slider vs;
+
     @FXML private Circle cir1;
     @FXML private Circle cir2;
-    @FXML private Rectangle vidScreen;
-    @FXML private Image img = new Image("knobimg.jpg");
-    @FXML private Slider vs;
-    @FXML private MediaView mv;
-    private MediaPlayer mp;
-    File f = new File("video.mp4");
+    @FXML private Image img = new Image("media/knobimg.jpg");
 
 
 
-    public void initialize() throws Exception
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
     {
-        Media media = new Media(f.toURI().toURL().toString());
-        mp = new  MediaPlayer(media);
-        mv = new MediaView(mp);
-        mp.play();
+        //video
+        String videopath = new File("src/media/video.mp4").getAbsolutePath(); //.getAbsolutePath ??? Sprawia, że działa
+        me = new Media(new File(videopath).toURI().toString()); //toURI().toString() ??? ^
+        mp = new MediaPlayer(me);
+        media.setMediaPlayer(mp);
+        mp.setAutoPlay(true);
+        DoubleProperty width = media.fitWidthProperty();
+        DoubleProperty height = media.fitHeightProperty();
+        width.bind(Bindings.selectDouble(media.sceneProperty(), "width"));
+        height.bind(Bindings.selectDouble(media.sceneProperty(), "height"));
 
+
+
+
+        //volume slider
         vs.setValue(mp.getVolume()*100);
         vs.valueProperty().addListener(new InvalidationListener() {
             @Override
@@ -54,12 +66,12 @@ public class Controller  {
             }
         });
 
-
-
+        //filling knobsliders with texture
         cir1.setFill(new ImagePattern(img));
         cir2.setFill(new ImagePattern(img));
         cir2.getTransforms().add(new Rotate(-60));
-
+        /*
+        //rotation of the knobs
         cir2.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
 
             @Override
@@ -89,7 +101,7 @@ public class Controller  {
                 }
             }
         });
-
+        */
 
     }
 }
