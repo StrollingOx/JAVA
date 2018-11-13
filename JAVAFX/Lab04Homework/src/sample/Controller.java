@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -19,21 +20,19 @@ public class Controller {
     @FXML
     TableColumn<Record, String> month;
     @FXML
-    TableColumn<Record, String> profit;
+    TableColumn<Record, Double> profit;
 
-    NumberAxis y = new NumberAxis();
-    CategoryAxis x = new CategoryAxis();
 
     @FXML
-    CategoryAxis monthData;
+    CategoryAxis monthData; //x
     @FXML
-    NumberAxis profitData;
+    NumberAxis profitData; //y
     @FXML
-    BarChart<String,Number> bar = new BarChart <String, Number>(x,y);
+    BarChart<String,Number> bar;// = new BarChart <String, Number>(monthData,profitData);
     @FXML
     TableView<Record> table;
 
-    int counter =0;
+    XYChart.Series series = new XYChart.Series();
     public void addToBarChart()
     {
         month.setCellValueFactory(new PropertyValueFactory<>("month"));
@@ -43,6 +42,7 @@ public class Controller {
 
     public void update()
     {
+
         String varMonth=textFieldMonth.getText();
         Double varProfit = null;
 
@@ -54,7 +54,7 @@ public class Controller {
             System.out.println("NaN!");
         }
 
-            addToBarChart();
+        addToBarChart();
 
 
         if(varProfit>=0 && varMonth.length()>0)
@@ -71,10 +71,8 @@ public class Controller {
     }
     public void setGraph(String month, Double profit)
     {
-        XYChart.Series series = new XYChart.Series();
         series.getData().add(new XYChart.Data(month, profit));
+        //monthData.setCategories(FXCollections.observableArrayList(month));
         bar.getData().add(series);
-        counter++;
-
     }
 }
