@@ -1,1 +1,1 @@
-Project for "PAI"
+Projects for "PAI"
